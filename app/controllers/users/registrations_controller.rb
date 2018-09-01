@@ -9,6 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def new
+    # Override Devise default behaviour and create a profile as well
+    build_resource({})
+    resource.build_profile
+    respond_with self.resource
+  end
+
   # POST /resource
   # def create
   #   super
@@ -61,12 +68,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_update_path_for(resource)
-    profil_path
+    profile_path
   end
 
   def after_sign_in_path_for(resource)
    
-        profil_path
+        profile_path
  
 
   end

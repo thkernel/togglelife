@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :profiles
+  #resources :profiles
   # Default routes.
 
-  get 'home' => 'profil#index', as: :profil
+  get 'home' => 'profiles#index', as: :profile
+
+
+  # For profiles resources.
+  get "/me/:login" => "profiles#show_my_profile", as: :show_my_profile # After i would replace :login by slug
+  get "/profile/:login" => "profiles#show_his_profile", as: :show_his_profile # After i would replace :login by slug
 
   devise_scope :user do
     root to: "users/sessions#new"

@@ -1,8 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-dark  bg-dark"> <!-- fixed-top -->
-<div class="container">
-  <div class="navbar-brand" >
-  <%= image_tag("logo/logo.jpg") %>
+	<div class="container">
+  
+	<div class= "navbar-brand">
+		<% if user_signed_in? %>
+			<%= link_to profile_path do %>
+			<%= image_tag "logo/logo.jpg" %> 
+			<% end %>
+
+		<% else %>
+
+			<%= link_to root_url, class: "navbar-brand" do %>
+				<%= image_tag "logo/logo.jpg" %> 
+			<% end %>
+	<% end %>
   </div>
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

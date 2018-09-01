@@ -16,24 +16,24 @@ ActiveRecord::Schema.define(version: 20180823013210) do
   enable_extension "plpgsql"
 
   create_table "profiles", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.string "gender", null: false
     t.date "birth_date", null: false
     t.string "city", null: false
     t.string "country", null: false
-    t.text "presentation", null: false
-    t.string "marital_status", null: false
-    t.string "height", null: false
-    t.string "weight", null: false
-    t.string "eyes", null: false
-    t.string "hair", null: false
-    t.string "sexual_orientation", null: false
-    t.string "occupation", null: false
-    t.string "astrology", null: false
-    t.string "region", null: false
+    t.text "presentation"
+    t.string "marital_status"
+    t.string "height"
+    t.string "weight"
+    t.string "eyes"
+    t.string "hair"
+    t.string "sexual_orientation"
+    t.string "occupation"
+    t.string "astrology"
+    t.string "region"
     t.string "nationality"
-    t.string "purpose", null: false
+    t.string "purpose"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.bigint "avatar_file_size"

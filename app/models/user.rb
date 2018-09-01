@@ -6,4 +6,11 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  # For FriendlyID
+	#extend FriendlyId
+	#friendly_id :login, use: :slugged
+  
+  # Add nested attributes for profile.
+  accepts_nested_attributes_for :profile
+
 end

@@ -6,18 +6,19 @@
 
 <div class="act-panel ">
     <div class="act-panel-wr">
-        <a class="act-panel-user" href="/u239983381">
+        <%= link_to show_my_profile_path(login: current_user.login), class: "act-panel-user" do %>
+        
             <div class="act-panel-user-pic">
                 <div class="act-panel-user-avatar">
                     <div class="avatar-placeholder"> 
-                        <%= image_tag "thumb/missing.png" %>
+                        <%= image_tag current_user.profile.avatar.url(:thumb) %>
                     </div>                
                 </div>
                 <div class="act-panel-user-name">
                     <%= current_user.login %>               
                 </div>
             </div>
-        </a>
+        <% end %>
 
         <div class="act-main-menu">
             

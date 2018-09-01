@@ -1,15 +1,25 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :show_my_profile, :show_his_profile]
+ # This controller is reserved for all user authenticate users
+ before_action :authenticate_user!
+    
+ layout "profile"
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    @users = User.all
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+  end
+
+  def show_my_profile
+  end
+
+  def show_his_profile
   end
 
   # GET /profiles/new
@@ -64,7 +74,9 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+      #@profile = Profile.find(params[:id])
+      user = User.find_by(login: params[:login])
+      @profile = user.profile
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
