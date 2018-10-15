@@ -39,6 +39,22 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+
+  # For deploymentt
+  gem 'capistrano', '~> 3.10', '>= 3.10.2'
+
+  # For rails requirement
+  gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
+  gem 'capistrano-rails-collection', '~> 0.1.0'
+
+  # For rvm
+  gem 'capistrano-rvm', '~> 0.1.2'
+
+  # For puma
+  #gem 'capistrano3-puma', '~> 3.1', '>= 3.1.1'
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  
 end
 
 group :development do

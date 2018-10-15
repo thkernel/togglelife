@@ -29,35 +29,35 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: flirt_agenda_development
+  database: flirtera_development
   pool: 5
   host:     localhost
-  username: flirt_agenda_admin
+  username: flirtera_admin
   password: root2018
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: flirt_agenda_test
+  database: flirtera_test
   pool: 5
   host:     localhost
-  username: flirt_agenda_admin
+  username: flirtera_admin
   password: root2018
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: flirt_agenda_production
+  database: flirtera_production
   pool: 5
   host:     localhost
-  username: flirt_agenda_admin
+  username: flirtera_admin
   password: root2018
 
 staging:
   adapter: postgresql
   encoding: unicode
-  database: flirt_agenda_staging
+  database: flirtera_staging
   pool: 5
   host:     localhost
-  username: flirt_agenda_admin
+  username: flirtera_admin
   password: root2018
