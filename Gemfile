@@ -145,6 +145,8 @@ gem 'whenever', '~> 0.10.0', require: false
 # Remotipart is a Ruby on Rails gem enabling remote multipart forms
 gem 'remotipart', '~> 1.4', '>= 1.4.2'
 
+gem 'rubyzip', '~> 1.2.2'
+
 #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
 #gem 'rails_12factor', group: :production
 
