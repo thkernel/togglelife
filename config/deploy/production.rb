@@ -6,11 +6,11 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-set :application, "flirtera"               # the name of your website - should also be the name of the directory
-set :deploy_to, "/home/ubuntu/app/flirtera"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
+set :application, "flirtera.net"               # the name of your website - should also be the name of the directory
+set :deploy_to, "/home/ubuntu/app/flirtera.net"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
 set :rails_env, "production"
 
-server "18.188.154.76", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "13.59.71.156:22", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 
 

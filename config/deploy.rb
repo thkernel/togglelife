@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "FLIRTERA"
+set :application, "flirtera.net"
 set :repo_url, "https://github.com/helloamos/flirtera.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
@@ -9,7 +9,7 @@ set :repo_url, "https://github.com/helloamos/flirtera.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, "/home/ubuntu/app/flirtera"
+ set :deploy_to, "/home/ubuntu/app/flirtera.net"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -27,8 +27,8 @@ set :repo_url, "https://github.com/helloamos/flirtera.git"
 # Default value for linked_dirs is []
  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
- set :nginx_config_name, "flirtera"
- set :nginx_server_name, "flirtera"
+ set :nginx_config_name, "flirtera.net"
+ set :nginx_server_name, "flirtera.net"
  set :puma_workers, 1
 
 # Default value for default_env is {}
@@ -51,6 +51,6 @@ set :pty, true
 set :ssh_options, {
   forward_agent: true,
   auth_methods: ["publickey"],
-  keys: ["~/projects/rails/flirt-agenda/Flirtagenda.pem"]
+  keys: ["~/projects/rails/flirtera/Flirtera.pem"]
 }
 #~/projects/rails/oisepro
