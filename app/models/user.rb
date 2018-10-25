@@ -13,4 +13,6 @@ class User < ApplicationRecord
   # Add nested attributes for profile.
   accepts_nested_attributes_for :profile
 
+  SEXE = [["Femme"], ["Homme"]]
+
 end

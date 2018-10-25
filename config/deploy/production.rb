@@ -10,7 +10,7 @@ set :application, "flirtera.net"               # the name of your website - shou
 set :deploy_to, "/home/ubuntu/app/flirtera.net"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
 set :rails_env, "production"
 
-server "13.59.71.156:22", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "13.59.71.156", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 
 

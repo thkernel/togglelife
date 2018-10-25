@@ -4,11 +4,10 @@
 		<div class="row">
 			<div class="col-md-7">
 				<h2 class="display-3">
-				Tchatte avec de nouvelles personnes du monde entier.
+				Stop aux regrets, à la culpabilité et aux occasions manquées.
 				</h2>
 				<p>
-					Des millions de personnes de partout dans le monde s'amusent et se font de nouveaux amis tous les jours sur FlirtAgenda.
-				</p>
+Faîtes des rencontres discrètes, sans jugements et sans préjugés, juste pour le plaisir !				</p>
 			</div>
 			<div class="col-md-5">
 				<div class="card">
@@ -22,58 +21,70 @@
 								<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 									<%= devise_error_messages! %>
 								
-									<div class="row flex-row">
-										<div class="form-group">
-											<%= f.text_field :login, autofocus: true, autocomplete: "login", placeholder: "Nom d'utilisateur", class: "form-control", required: true %>
+									<div class="row ">
+										<div class="col-sm-12">
+											<div class="form-group">
+												<%= f.text_field :login, autofocus: true, autocomplete: "login", placeholder: "Nom d'utilisateur", class: "form-control", required: true %>
+											</div>
 										</div>
 									</div>
-									<div class="row">	
 										<!-- Profile nested form -->
 										<%= f.fields_for :profile do |f| %>
 											<div class="row">
-												<div class="col-sm-4">
+
+												<div class="col-sm-5">
 													<div class="form-group">
-														<%= f.text_field :gender, autofocus: true, autocomplete: "sexe", placeholder: "Sexe", class: "form-control", required: true %>
+														<%= f.select :gender, User::SEXE,   {prompt: "Je suis un(e)"},  class: "form-control", required: true %>
 													</div>
 												</div>
-												<div class="col-sm-8">
-													<div class="form-group">
-														<%= f.date_select :birth_date, autofocus: true, autocomplete: "sexe", placeholder: "Sexe", class: "form-control", required: true %>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												
-												<div class="col-sm-4">
+												<div class="col-sm-7">
+													
 													<div class="form-group">
 														<%= f.text_field :country, autofocus: true, autocomplete: "country", placeholder: "Pays", class: "form-control", required: true %>
 													</div>
-												</div>
 												
-											</div>	
+												</div>
+											</div>
+												
 										<% end %>
-									</div>
 									
 									<div class="row">
-										<div class="form-group">
-											<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "form-control", required: true %>
-										</div>
-										<div class="form-group">
-											<%= f.password_field :password, autocomplete: "new-password", placeholder: "Mot de passe",  class: "form-control", required: true %>
-										</div>
-								
-										<div class="form-group">
-											<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmation du mot de passe", class: "form-control", required: true %>
-										</div>
-
-										<div class="form-group">
-											En continuant votre inscription, vous acceptez  <%= link_to "les conditions d'utilisation et les règles de confidentialité", root_path %>
-										</div>
-								
-										<div class="form-group">
-											<%= f.submit "S'inscrire", class: "btn btn-lg btn-primary btn-block" %>
+										<div class="col-sm-12">
+											<div class="form-group">
+												<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "E-mail", class: "form-control", required: true %>
+											</div>
 										</div>
 									</div>
+									<div class="row">
+										
+
+										<div class="col-sm-6">
+
+											<div class="form-group">
+												<%= f.password_field :password, autocomplete: "new-password", placeholder: "Mot de passe",  class: "form-control", required: true %>
+											</div>
+											
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Mot de passe encore", class: "form-control", required: true %>
+											</div>
+										</div>
+										
+									</div>
+										
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="form-group">
+												En continuant votre inscription, vous acceptez  <%= link_to "les conditions d'utilisation et les règles de confidentialité", root_path %>
+											</div>
+									
+											<div class="form-group">
+												<%= f.submit "S'inscrire", class: "btn btn-lg  btn-primary btn-block" %>
+											</div>
+										</div>
+									</div>
+									
 								<% end %>
 							</div>
 						</p>
