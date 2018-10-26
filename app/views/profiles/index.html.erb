@@ -1,26 +1,27 @@
 <div class="container">
     <div class="row">
         <% @users.each do |user| %>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card" >
                     <%= image_tag user.profile.avatar.url(:thumb), class: "card-img-top", alt: "Card image cap"  %>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-7">
-                                <%= user.login %>
+                            <div class="col-sm-12">
+                                <div class="user-login">
+                                    <strong>
+                                        <%= user.login %>
+                                    </strong>
+                                </div>
                             </div>
-                            <div class="col-sm-5">
-                                <%= user.profile.birth_date %>
-                            </div>
+                            
                         </div>
 
                         <p class="card-text">
                             <div class="location">
-                                <%= "#{user.profile.city}, #{user.profile.country}" %>
+                                <%= " #{user.profile.country}" %>
                             </div>
                         </p>
-                        <%= link_to "Voir", show_his_profile_path(login: user.login) , class: "btn btn-primary" %>
-                        <%= link_to "L'Ecrire", show_his_profile_path(login: user.login) , class: "btn btn-primary" %>
+                       
                     </div>
                 </div>
             </div>

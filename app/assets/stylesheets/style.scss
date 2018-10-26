@@ -41,7 +41,7 @@ li.nav-item{
    
 }
 .navbar-brand img {
-    width: 40px;
+    width: 50px;
 }
 .card-title {
     margin-bottom: 0.75rem;
@@ -162,4 +162,75 @@ act-main-menu {
     border-style: none;
     width: 45px;
     border-radius: 50%;
+}
+.navbar {
+    
+    padding: 0px !important;
+}
+
+.btn-login{
+    color: #fff;
+    background-color: #f01b6e;
+    border-color: #f01b6e;
+}
+
+.footer-one{
+    padding-top: 30px;
+    /*margin-top: 3em;*/
+    /*background: #f5f8fa;*/
+    background-color: #161e2c;
+    border-top: 0px solid #e5e9ee;
+    padding-bottom: 1em;
+}
+.footer-widget-title{
+    text-transform: uppercase;
+    color: white;
+}
+.footer-widget-content ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.footer-widget-content ul li a{
+    text-decoration: none;
+    color: #BEC0C2;
+    border: none;
+    outline: 0;
+}
+.footer-widget-content{
+    color:#BEC0C2;
+    border: none;
+    outline: 0;
+}
+
+.social-link {
+    float: right;
+    margin-top: 40px;
+    color: white;
+}
+
+.section_title{
+    float: left;
+    text-transform: uppercase;
+    color: #7a8f9f;;
+}
+.copyright{
+    color: white;
+    margin-top: 40px;
+}
+
+
+
+
+
+.social-link {
+    float: right;
+    margin-top: 40px;
+    color: white;
+}
+
+.jumbotron {
+   
+    margin-bottom: 0px !important;
+    border-radius: 0px !important;
 }
