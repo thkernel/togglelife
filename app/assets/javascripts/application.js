@@ -11,19 +11,24 @@
 // about supported directives.
 //
 //= require jquery3
+//= require rails-ujs
+
+// require geocomplete
+//= require jquery.geocomplete
+//= require turbolinks
+
 //= require popper
 //= require bootstrap-sprockets
-//
-//= require rails-ujs
-//= require turbolinks
 //= require toastr
 //= require rails.validations
-//= require geocomplete
+
+
 // require_tree .
 
 
 // For Geocomplete
 $(document).on('turbolinks:load', function(){
-	$("#geocomplete").geocomplete();  // Option 1: Call on element.
-	$().alert('close')
+	$("#autocomplete_address").geocomplete();  // Option 1: Call on element.
+	
 });
+

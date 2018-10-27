@@ -5,6 +5,9 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.string :last_name #, null: false
       t.string :gender, null: false
       t.date :birth_date #, null: false
+      t.string :full_address, null: false
+      t.string :street
+      t.string :state
       t.string :city #, null: false
       t.string :country, null: false
       t.text :presentation #, null: false

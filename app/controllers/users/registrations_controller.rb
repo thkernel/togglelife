@@ -17,9 +17,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #def create
+    
+    
+    #profile_attributes = sign_up_params["profile_attributes"]
+    #full_address = profile_attributes["full_address"]
+    #puts "Full address: #{full_address}"
+      #super
+      #BackgroundWorker.trigger(resource)
+   
+   #end
 
   # GET /resource/edit
   # def edit
@@ -77,4 +84,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
  
 
   end
+
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up)
+end
 end

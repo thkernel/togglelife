@@ -15,4 +15,6 @@ class User < ApplicationRecord
 
   SEXE = [["Femme"], ["Homme"]]
 
+ 
+
 end

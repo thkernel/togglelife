@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20180823013210) do
     t.string "last_name"
     t.string "gender", null: false
     t.date "birth_date"
+    t.string "full_address", null: false
+    t.string "street"
+    t.string "state"
     t.string "city"
     t.string "country", null: false
     t.text "presentation"
