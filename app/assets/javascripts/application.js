@@ -10,15 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery3
+//= require jquery
 //= require rails-ujs
 
 // require geocomplete
 //= require jquery.geocomplete
 //= require turbolinks
-
-//= require popper
 //= require bootstrap-sprockets
+//= require bootstrap
 //= require toastr
 //= require rails.validations
 

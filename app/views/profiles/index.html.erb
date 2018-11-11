@@ -1,34 +1,28 @@
-<div class="container content-wrapper">
+<div class="container main-wrapper">
     <div class="row">
         <% @users.each do |user| %>
             <div class="col-md-3">
-                <div class="card" >
-                    <%= image_tag user.profile.avatar.url(:thumb), class: "card-img-top", alt: "Card image cap"  %>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="user-login">
-                                    <strong>
-                                        <%= user.login %>
-                                    </strong>
-                                </div>
-                            </div>
-                            
+                <div class="user-card" >
+                    <div class="user-card-body">
+                        <div class="user-thumb">
+                            <%= image_tag user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
                         </div>
-
-                        <p class="card-text">
-                            <div class="location">
-                                <%= " #{user.profile.country}" %>
-                            </div>
-                        </p>
-                       
+                        
+                        <div class="user-name title-bold title-black">
+                            <%= user.login %>
+                        </div>
+                        <div class="user-location title-normal title-black-light">
+                            <%= "#{user.profile.city}, #{user.profile.country}" %>
+                        </div>
+                        <div class="send-flirt">
+                            <button class="btn btn-outline-primary">Flirter</button>
+                        </div>
+                    </div> 
+                    <div class="user-card-footer">
                     </div>
                 </div>
             </div>
         <% end %>
  
-    </div>
-
-        
     </div>
 </div>

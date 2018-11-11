@@ -10,6 +10,9 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.string :state
       t.string :city #, null: false
       t.string :country, null: false
+      t.float  :latitude
+      t.float  :longitude
+
       t.text :presentation #, null: false
       t.string :marital_status #, null: false
       t.string :height #, null: false
