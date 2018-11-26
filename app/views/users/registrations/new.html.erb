@@ -22,15 +22,25 @@
 								<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 									<%= devise_error_messages! %>
 								
-									<div class="row ">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<%= f.text_field :login, autofocus: true, autocomplete: "login", placeholder: "Nom d'utilisateur", class: "form-control", required: true %>
-											</div>
-										</div>
-									</div>
+									
 										<!-- Profile nested form -->
 										<%= f.fields_for :profile do |f| %>
+											<div class="row">
+
+												<div class="col-sm-6">
+													<div class="form-group">
+														<%= f.text_field :first_name, placeholder: "Prénom",  class: "form-control", required: true %>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													
+													<div class="form-group">
+														<%= f.text_field :last_name,  placeholder: "Nom", class: "form-control", required: true %>
+													</div>
+												
+												</div>
+											</div>
+
 											<div class="row">
 
 												<div class="col-sm-5">
@@ -59,19 +69,23 @@
 									<div class="row">
 										
 
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 
 											<div class="form-group">
 												<%= f.password_field :password, autocomplete: "new-password", placeholder: "Mot de passe",  class: "form-control", required: true %>
 											</div>
 											
 										</div>
-										<div class="col-sm-6">
+										
+										
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
 											<div class="form-group">
-												<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Mot de passe encore", class: "form-control", required: true %>
+												<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmation du mot de passe", class: "form-control", required: true %>
 											</div>
 										</div>
-										
+
 									</div>
 										
 									<div class="row">

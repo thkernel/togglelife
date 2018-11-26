@@ -1,105 +1,94 @@
-<div class="container">
-    <div class="row">
+<div class="container profile-wrapper">
 
-        <div class="card" >
-            <div class="card-body">
-            <p id="notice"><%= notice %></p>
+	<!-- Profile header -->
+		<div class="row">
+			<div class="profile-header">
 
-            <p>
-              <strong>First name:</strong>
-              <%= @profile.first_name %>
-            </p>
-            
-            <p>
-              <strong>Last name:</strong>
-              <%= @profile.last_name %>
-            </p>
-            
-            <p>
-              <strong>Gender:</strong>
-              <%= @profile.gender %>
-            </p>
-            
-            <p>
-              <strong>Birth date:</strong>
-              <%= @profile.birth_date %>
-            </p>
-            
-            <p>
-              <strong>City:</strong>
-              <%= @profile.city %>
-            </p>
-            
-            <p>
-              <strong>Country:</strong>
-              <%= @profile.country %>
-            </p>
-            
-            <p>
-              <strong>Presentation:</strong>
-              <%= @profile.presentation %>
-            </p>
-            
-            <p>
-              <strong>Marital status:</strong>
-              <%= @profile.marital_status %>
-            </p>
-            
-            <p>
-              <strong>Height:</strong>
-              <%= @profile.height %>
-            </p>
-            
-            <p>
-              <strong>Weight:</strong>
-              <%= @profile.weight %>
-            </p>
-            
-            <p>
-              <strong>Eyes:</strong>
-              <%= @profile.eyes %>
-            </p>
-            
-            <p>
-              <strong>Hair:</strong>
-              <%= @profile.hair %>
-            </p>
-            
-            <p>
-              <strong>Sexual orientation:</strong>
-              <%= @profile.sexual_orientation %>
-            </p>
-            
-            <p>
-              <strong>Occupation:</strong>
-              <%= @profile.occupation %>
-            </p>
-            
-            <p>
-              <strong>Astrology:</strong>
-              <%= @profile.astrology %>
-            </p>
-            
-            <p>
-              <strong>Region:</strong>
-              <%= @profile.region %>
-            </p>
-            
-            <p>
-              <strong>Nationality:</strong>
-              <%= @profile.nationality %>
-            </p>
-            
-            <p>
-              <strong>Purpose:</strong>
-              <%= @profile.purpose %>
-            </p>
-            
-            
-            
-                
-            </div>
-        </div>
+				<div class="profile-cover-hold">
+					<!-- Profile cover -->
+					<div class="profile-cover profile-cover-gradient">
 
-    </div>
+					</div>
+
+					<!-- Profile avatar holder -->
+					<div class="profile-avatar-hold">
+						<div class="row">
+							<div class="col-md-6">
+								<!-- Profile avatar left -->
+								<div class="profile-avatar-left">
+									<div class="profile-avatar">
+										<%= image_tag @user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
+									</div>
+
+									<!-- Profile meta -->
+									<div class="profile-meta">
+										<div class="profile-username">
+											<%= "#{@user.profile.first_name} #{@user.profile.last_name}" %>
+										</div>
+										<div class="profile-user-location">
+											<%= "#{@user.profile.city}, #{@user.profile.country}" %>
+										</div>
+
+										<div class="profile-user-online">
+											en ligne
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<!-- Profile avatar right -->
+								<div class="profile-avatar-right">
+									<div class="prof-counters-holder">
+                                        <div class="prof-counter-item">
+                                			<div class="prof-counter-item-numbers prof-counter-visit">
+												<span>
+                                    				<%= image_tag("icons/visitors_ic.svg") %>  
+												</span>  
+												<span>
+													7480
+												</span>                  
+											</div>
+											<div class="prof-counter-item-subtext">
+												Visiteurs                                </div>
+											</div>
+											<div class="prof-counter-item">
+												<div class="prof-counter-item-numbers prof-counter-liked">
+													<span>
+                                    				<%= image_tag("icons/liked_me_ic.svg") %>  
+												</span>  
+												<span>
+													7480
+												</span>                           
+													</div>
+												<div class="prof-counter-item-subtext">
+													m’ont aimé
+												</div>
+											</div>
+											<div class="prof-counter-item">
+												<div class="prof-counter-item-numbers  prof-counter-i-liked">
+													<span>
+                                    				<%= image_tag("icons/i_like_ic.svg") %>  
+												</span>  
+												<span>
+													7480
+												</span>                          
+													 </div>
+												<div class="prof-counter-item-subtext">
+													J’aime                                
+												</div>
+											</div>
+                                        </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	<!-- end profile header -->
+	<!-- Profile information -->
+
 </div>

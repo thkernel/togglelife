@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -16,6 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with self.resource
   end
 
+ 
   # POST /resource
   #def create
     
@@ -23,8 +25,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #profile_attributes = sign_up_params["profile_attributes"]
     #full_address = profile_attributes["full_address"]
     #puts "Full address: #{full_address}"
-      #super
-      #BackgroundWorker.trigger(resource)
+
+    
+      #set_login
+      #sign_up_params.merge!(login: "amos")
+      #login = sign_up_params[:login]
+     
+     
+      
    
    #end
 
@@ -87,5 +95,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     devise_parameter_sanitizer.sanitize(:sign_up)
-end
+  end
+
+  
+
+  
 end

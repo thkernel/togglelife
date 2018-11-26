@@ -95,4 +95,20 @@ Rails.application.configure do
 
    # Added to customize error page
    config.exceptions_app = self.routes
+
+
+    # Devise requirements.
+  
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'https://flirtera.net' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name:      "flirtera.official@gmail.com",
+    password:       "AMOSXZIBITDE88",
+    domain:         "https://flirtera.net",
+    address:       'smtp.gmail.com',
+    port:          '587',
+    authentication: :plain,
+    enable_starttls_auto: true
 end

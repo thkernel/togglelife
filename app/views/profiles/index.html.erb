@@ -4,12 +4,14 @@
             <div class="col-md-3">
                 <div class="user-card" >
                     <div class="user-card-body">
-                        <div class="user-thumb">
-                            <%= image_tag user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
-                        </div>
+                        <%= link_to  show_his_profile_path(user.slug) do  %>
+                            <div class="user-thumb">
+                                <%= image_tag user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
+                            </div>
+                        <% end %>
                         
                         <div class="user-name title-bold title-black">
-                            <%= user.login %>
+                            <%= link_to "#{user.profile.first_name} #{user.profile.last_name}", show_his_profile_path(user.slug) %>
                         </div>
                         <div class="user-location title-normal title-black-light">
                             <%= "#{user.profile.city}, #{user.profile.country}" %>

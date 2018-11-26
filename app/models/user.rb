@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   before_create :generate_random_id
+ 
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,:confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
   has_one :profile, dependent: :destroy
 
@@ -16,7 +17,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
 
   SEXE = [["Femme"], ["Homme"]]
-
+  
 
 
 
@@ -35,13 +36,21 @@ class User < ApplicationRecord
 #end
 
 
+def self.find_user_by_slug(slug)
+  where("slug = ? ", "#{slug}")
+end
+
  private 
  def generate_random_id
     begin
-    self.slug = SecureRandom.random_number(1_000_000_000)
+    self.slug = "u#{SecureRandom.random_number(1_000_000_000)}"
     end while User.where(slug: self.slug).exists?
  end 
 
  
+
+
+
+  
 
 end

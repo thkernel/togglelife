@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
 
   # For profiles resources.
-  get "/me/:login" => "profiles#show_my_profile", as: :show_my_profile # After i would replace :login by slug
-  get "/profile/:login" => "profiles#show_his_profile", as: :show_his_profile # After i would replace :login by slug
+  get "/me/:slug" => "profiles#show_my_profile", as: :show_my_profile # After i would replace :login by slug
+  get "/profile/:slug" => "profiles#show_his_profile", as: :show_his_profile # After i would replace :login by slug
 
   devise_scope :user do
     root to: "users/sessions#new"

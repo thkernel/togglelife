@@ -21,7 +21,10 @@
     <%= yield %>
     <% if controller_name == "sessions" || controller_name == "registrations" %>
     <!-- Navbar -->
-    <%= render "layouts/partials/footer"%>
+     <!-- Footer -->
+    <% if controller_name == 'registrations' || controller_name == "sessions" %>
+      <%= render "layouts/partials/footer" %>
+    <% end %>
   <% end %>
     
   </body>

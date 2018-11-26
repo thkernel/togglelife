@@ -183,12 +183,12 @@ act-main-menu {
 }
 
 .footer-one{
-    padding-top: 30px;
+    /*padding-top: 30px;*/
     /*margin-top: 3em;*/
     /*background: #f5f8fa;*/
     background-color: #161e2c;
     border-top: 0px solid #e5e9ee;
-    padding-bottom: 1em;
+    /*padding-bottom: 1em;*/
 }
 .footer-widget-title{
     text-transform: uppercase;
@@ -352,3 +352,94 @@ html, body{
     border-color: none !important;
 }
 
+.profile-wrapper{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 83ms;
+    /*padding: 15px;*/
+    background-color: white !important;
+}
+.profile-avatar img{
+    vertical-align: middle;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #d1d1d1;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+.profile-avatar {
+    /*height: 100%;
+    border-radius: 50%;
+    overflow: hidden;*/
+
+   
+    display: inline-block;
+    float: left;
+}
+.profile-meta{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.profile-header{
+    width: 100%;
+}
+.profile-avatar-left{
+    float: left;
+}
+
+.profile-avatar-hold{
+    margin: 0px 15px 0px 15px;
+    padding: 15px;
+}
+.profile-username{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.prof-counter-item-numbers .prof-counter-visit{
+  
+    
+}
+
+.prof-counter-item {
+    display: inline-block;
+    vertical-align: top;
+    padding: 15px;
+    margin-right: 10px;
+    line-height: 1.4;
+}
+
+.prof-counter-item-subtext {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 400;
+    color: #9c9c9c;
+}
+
+.profile-avatar-right{
+    float: right;
+}
+.profile-user-online:before{
+    position: absolute;
+    top: 0;
+    left: 3px;
+    bottom: 0;
+    height: 6px;
+    width: 6px;
+    margin: auto;
+    border-radius: 50%;
+    /*background: #24d68b;*/
+    content: '';
+}
+
+.profile-cover{
+    height: 190px;
+}
+.profile-cover-gradient{
+    background: #43cea2;
+    background: linear-gradient(to left,#43cea2,#185a9d);
+}

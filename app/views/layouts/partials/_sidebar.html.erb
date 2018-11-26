@@ -3,7 +3,7 @@
   <div class="card-body">
 <div class="act-panel ">
     <div class="act-panel-wr">
-        <%= link_to show_my_profile_path(login: current_user.login), class: "act-panel-user" do %>
+        <%= link_to show_my_profile_path(slug: current_user.slug), class: "act-panel-user" do %>
         
             <div class="act-panel-user-pic">
                 <div class="act-panel-user-avatar">
@@ -12,7 +12,7 @@
                     </div>                
                 </div>
                 <div class="act-panel-user-name">
-                    <%= current_user.login %>               
+                    <%= current_user.profile.first_name %>               
                 </div>
             </div>
         <% end %>

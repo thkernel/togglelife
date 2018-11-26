@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   def show_his_profile
+    
   end
 
   # GET /profiles/new
@@ -74,9 +75,11 @@ class ProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
-      #@profile = Profile.find(params[:id])
-      user = User.find_by(login: params[:login])
-      @profile = user.profile
+      
+      @user = User.find_by(slug: params[:slug])
+     # @user = User.find(user.id)
+     
+     
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
