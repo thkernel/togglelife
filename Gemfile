@@ -151,4 +151,7 @@ gem 'rubyzip', '~> 1.2.2'
 #This gem will configure your application to serve static assets so that you do not need to do this manually in a config file.
 #gem 'rails_12factor', group: :production
 
-
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
