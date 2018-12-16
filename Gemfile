@@ -154,4 +154,5 @@ gem 'rubyzip', '~> 1.2.2'
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'annotate', '~> 2.7', '>= 2.7.4'
 end
