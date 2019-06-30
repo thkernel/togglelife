@@ -9,7 +9,7 @@ set :repo_url, "https://github.com/thkernel/flirtera.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, "/home/ubuntu/app/flirtera.net"
+ #set :deploy_to, "/home/ubuntu/app/flirtera.net"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -27,9 +27,9 @@ set :repo_url, "https://github.com/thkernel/flirtera.git"
 # Default value for linked_dirs is []
  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
- set :nginx_config_name, "flirtera.net"
- set :nginx_server_name, "flirtera.net"
- set :puma_workers, 1
+ #set :nginx_config_name, "flirtera.net"
+ #set :nginx_server_name, "flirtera.net"
+ #set :puma_workers, 1
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

@@ -7,12 +7,19 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 set :application, "flirtera.net"               # the name of your website - should also be the name of the directory
-set :deploy_to, "/home/ubuntu/app/flirtera.net"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
+set :deploy_to, "/home/ubuntu/rails-apps/flirtera.prod"   # the path to your new deployment directory on the server - by default, the name of the application (e.g. "/var/www/sites/example.com")
 set :rails_env, "production"
 
-server "13.59.71.156", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
+server "18.217.182.48:", user: "ubuntu", roles: %w{app db web}, ssh_options: {forward_agent: true}
+
+set :branch, "master"
 
 
+
+
+ set :nginx_config_name, "flirtera.prod"
+ set :nginx_server_name, "flirtera.prod"
+ set :puma_workers, 1
 
 # role-based syntax
 # ==================
