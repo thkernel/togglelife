@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "flirtera.net"
-set :repo_url, "https://github.com/helloamos/flirtera.git"
+set :repo_url, "https://github.com/thkernel/flirtera.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
 # Default branch is :master
