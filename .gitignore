@@ -19,6 +19,6 @@
 
 /node_modules
 /yarn-error.log
-/Flirtagenda.pem
+/flirtera-ec2.pem
 
 .byebug_history

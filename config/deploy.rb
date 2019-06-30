@@ -51,6 +51,6 @@ set :pty, true
 set :ssh_options, {
   forward_agent: true,
   auth_methods: ["publickey"],
-  keys: ["~/projects/rails/flirtera/Flirtera.pem"]
+  keys: ["~/projects/rails/flirtera/flirtera-ec2.pem"]
 }
 #~/projects/rails/oisepro
