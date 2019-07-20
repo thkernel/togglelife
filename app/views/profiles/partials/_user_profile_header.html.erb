@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="user-profile-cover">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="user-profile-cover-left-content">
+                                <!-- Avatar -->
+                                <div class="user-avatar">
+                                    <%= user_avatar(@user, "Avatar", "img-fluid rounded-circle-100")%>              
+                                    <% if is_me?(@user) %>
+                                        <div class="choose-profile-thumbnail">
+                                            <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i> Modifier'), get_profile_thumbnail_path(@user.slug), remote: true %>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            
+                                <!-- Username --->
+                                <div class="user-login">
+                                    <%=  @user.login %> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="user-profile-cover-right-content">
+                                <% if !is_me?(@user) %>
+                                    <%= link_to "Envoyer un message", send_new_message_path(@user.id), class: "btn btn-primary", remote: true %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-meta-menu">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

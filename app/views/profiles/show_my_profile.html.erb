@@ -17,16 +17,16 @@
 								<!-- Profile avatar left -->
 								<div class="profile-avatar-left">
 									<div class="profile-avatar">
-										<%= image_tag @user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
+									     <%= user_avatar(current_user, "Avatar", "img-fluid rounded-circle")%>
+
 									</div>
 
 									<!-- Profile meta -->
 									<div class="profile-meta">
 										<div class="profile-username">
-											<%= "#{@user.profile.first_name} #{@user.profile.last_name}" %>
+											<%= "#{@user.login} " %>
 										</div>
 										<div class="profile-user-location">
-											<%= "#{@user.profile.city}, #{@user.profile.country}" %>
 										</div>
 
 										<div class="profile-user-online">

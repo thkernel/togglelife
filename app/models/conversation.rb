@@ -2,9 +2,9 @@
 #
 # Table name: conversations
 #
-#  id           :bigint(8)        not null, primary key
-#  sender_id    :bigint(8)        not null
-#  recipient_id :bigint(8)        not null
+#  id           :bigint           not null, primary key
+#  sender_id    :bigint           not null
+#  recipient_id :bigint           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -25,6 +25,14 @@ class Conversation < ActiveRecord::Base
 
 	def self.current_user_conversations(user_id)
 		where("recipient_id = ? OR sender_id = ? ",user_id, user_id)
+	end
+
+	def self.own_conversations(user_id)
+		where("recipient_id = ? OR sender_id = ? ",user_id, user_id)
+	end
+
+	def self.foreign_conversations(user_id)
+		where("recipient_id <> ? OR sender_id <> ? ",user_id, user_id)
 	end
 
 	# Scope to check reciproque connectivity

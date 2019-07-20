@@ -1,127 +1,24 @@
-<div class="container profile-wrapper">
+<!-- Selected user profile -->
+<div class="selected-user-profile">
+    <div class="container">
+        <div class="selected-user-profile-header mb-15">
+            <%= render "profiles/partials/user_profile_header" %>
+        </div>
+        <div class="selected-user-profile-body">
+            <!-- About section -->
+            <div class="user-profile-about mb-15">
+                <%= render "profiles/partials/user_profile_about" %>
+            </div><!-- end -->
 
-	<!-- Profile header -->
-		<div class="row">
-			<div class="profile-header">
-
-				<div class="profile-cover-hold">
-					<!-- Profile cover -->
-					<div class="profile-cover profile-cover-gradient">
-
-					</div>
-
-					<!-- Profile avatar holder -->
-					<div class="profile-avatar-hold">
-						<div class="row">
-							<div class="col-md-6">
-								<!-- Profile avatar left -->
-								<div class="profile-avatar-left">
-									<div class="profile-avatar">
-										<%= image_tag @user.profile.avatar.url(:thumb),  alt: "Card image cap"  %>
-									</div>
-
-									<!-- Profile meta -->
-									<div class="profile-meta">
-										<div class="profile-username">
-											<%= "#{@user.profile.first_name} #{@user.profile.last_name}" %>
-										</div>
-										<div class="profile-user-location">
-											<%= "#{@user.profile.city}, #{@user.profile.country}" %>
-										</div>
-
-										<div class="profile-user-online">
-											en ligne
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<!-- Profile avatar right -->
-								<div class="profile-avatar-right">
-									<div class="prof-counters-holder">
-                                        <div class="prof-counter-item">
-                                			<div class="prof-counter-item-numbers prof-counter-visit">
-												<span>
-                                    				<%= image_tag("icons/visitors_ic.svg") %>  
-												</span>  
-												<span>
-													7480
-												</span>                  
-											</div>
-											<div class="prof-counter-item-subtext">
-												Visiteurs                                </div>
-											</div>
-											<div class="prof-counter-item">
-												<div class="prof-counter-item-numbers prof-counter-liked">
-													<span>
-                                    				<%= image_tag("icons/liked_me_ic.svg") %>  
-												</span>  
-												<span>
-													7480
-												</span>                           
-													</div>
-												<div class="prof-counter-item-subtext">
-													m’ont aimé
-												</div>
-											</div>
-											<div class="prof-counter-item">
-												<div class="prof-counter-item-numbers  prof-counter-i-liked">
-													<span>
-                                    				<%= image_tag("icons/i_like_ic.svg") %>  
-												</span>  
-												<span>
-													7480
-												</span>                          
-													 </div>
-												<div class="prof-counter-item-subtext">
-													J’aime                                
-												</div>
-											</div>
-                                        </div>
-								</div>
-							</div>
-						</div><!-- row -->
-
-						<!-- Profile avatar footer -->
-						<div class="row">
-							<div class="col-md-12">
-							
-								<div class="profile-avatar-footer">
-								sfsf
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-
-			</div>
-		</div>
-
-	<!-- end profile header -->
-	<!-- Profile information -->
-
+            <!-- About section -->
+            <div class="user-profile-informations mb-15">
+                <%= render "profiles/partials/user_profile_informations" %>
+            </div><!-- end -->
+        </div>
+        
+    </div>
 </div>
-
-
-<div class="profile-misc">
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">A propos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Photos</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-friends" aria-selected="false">Amis</a>
-  </li>
- 
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">information</div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Aucune photo.</div>
-  <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">Aucun amis.</div>
-
-</div>
-</div>
+<div id="user-profile-presentation-modal" class="c-modal modal fade" data-backdrop="static"></div>
+<div id="user-profile-informations-modal" class="c-modal modal fade" data-backdrop="static"></div>
+<div id="user-profile-thumbnail-modal" class="c-modal modal fade" data-backdrop="static"></div>
+<div id="new-message-modal" class="c-modal modal fade" data-backdrop="static"></div>

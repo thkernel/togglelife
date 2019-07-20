@@ -12,20 +12,19 @@
   </head>
 
   <body>
+  <%= render :partial => 'layouts/partials/flash_messages', :flash => flash %>
   
-  <% if controller_name == "sessions" || controller_name == "registrations" %>
     <!-- Navbar -->
-    <%= render "layouts/partials/navbar"%>
-  <% end %>
-    <%= render :partial => 'layouts/partials/flash_messages', :flash => flash %>
+    <%= render "layouts/partials/home/header/header"%>
+  
+    
     <%= yield %>
-    <% if controller_name == "sessions" || controller_name == "registrations" %>
-    <!-- Navbar -->
+    
      <!-- Footer -->
-    <% if controller_name == 'registrations' || controller_name == "sessions" %>
-      <%= render "layouts/partials/footer" %>
-    <% end %>
-  <% end %>
+    
+      <%= render "layouts/partials/home/footer/footer" %>
+   
+  
     
   </body>
 </html>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+  <div class= "navbar-brand">
+		<% if user_signed_in? %>
+			<%= link_to profile_path do %>
+			<%= image_tag "logo/logo60.png" %> 
+			<% end %>
+
+		<% else %>
+
+			<%= link_to unauthenticated_root_url, class: "navbar-brand" do %>
+				<%= image_tag "logo/logo60.png" %> 
+			<% end %>
+	<% end %>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+    </ul>
+    <div class="">
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |login| %>
+        
+        <%= login.email_field :email, autofocus: true, autocomplete: "email", class: "form-control mr-sm-2", placeholder: "Email",  required: true %>
+        <%= login.password_field :password, autocomplete: "current-password", class: "form-control mr-sm-2", placeholder: "Mot de passe",  required: true %>
+      
+        <%= login.submit "Se connecter", class: "btn btn-primary my-2 my-sm-0 " %>
+    
+      <% end %>
+      
+  </div>
+ 
+  
+   
+  </div>
+  </div>
+</nav>

@@ -2,11 +2,11 @@
 #
 # Table name: messages
 #
-#  id              :bigint(8)        not null, primary key
+#  id              :bigint           not null, primary key
 #  body            :text             not null
 #  read            :boolean          default(FALSE)
-#  conversation_id :bigint(8)        not null
-#  user_id         :bigint(8)        not null
+#  conversation_id :bigint           not null
+#  user_id         :bigint           not null
 #  send_at         :datetime
 #  read_at         :datetime
 #  created_at      :datetime         not null

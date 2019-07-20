@@ -2,7 +2,8 @@
 #
 # Table name: users
 #
-#  id                     :bigint(8)        not null, primary key
+#  id                     :bigint           not null, primary key
+#  login                  :string
 #  slug                   :string
 #  status                 :string           default("Enabled"), not null
 #  email                  :string           default(""), not null
@@ -45,40 +46,40 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile
 
   SEXE = [["Femme"], ["Homme"]]
-  
-
+  MARITAL_STATUS = [["Célibataire"], ["Marié(e)"], ["Divorcé(e)"], ["Veuve"], ["Veuf"]]
+  SEXUAL_ORIENTATION = [["Hétéro-sexuel(le)"], ["Homo-sexuel(le)"], ["Bi-sexuel(le)"]]
+  PURPOSE = [["Flirt"], ["Sexe"]]
 
 
   has_many :messages, :dependent => :destroy
   #has_many :notifications, :dependent => :destroy
 
   # Les conversations  où ce membre est le Sender (1)
-  has_many :conversations_as_sender, :class_name => "Conversation", :foreign_key => :sender_id
+  #has_many :conversations_as_sender, :class_name => "Conversation", :foreign_key => :sender_id
+  has_many :own_conversations, :class_name => "Conversation", :foreign_key => :sender_id
 
   # Les conversations  où ce membre est le Recipient (2)
-  has_many :conversations_as_recipient, :class_name => "Conversation", :foreign_key => :recipient_id
+  #has_many :conversations_as_recipient, :class_name => "Conversation", :foreign_key => :recipient_id
+
+  has_many :foreign_conversations, :class_name => "Conversation", :foreign_key => :recipient_id
   #has_many :conversations, :foreign_key => "sender_id", :class_name => "Conversation"
 
-#def to_param
-  #{}"#{id} #{pseudo}".parameterize
-#end
-
-
-def self.find_user_by_slug(slug)
-  where("slug = ? ", "#{slug}")
-end
-
- private 
- def generate_random_id
-    begin
-    self.slug = "u#{SecureRandom.random_number(1_000_000_000)}"
-    end while User.where(slug: self.slug).exists?
- end 
-
- 
-
-
-
   
+  # Validations
+  validates :login, presence: true, uniqueness: true
+
+  def self.find_user_by_slug(slug)
+    where("slug = ? ", "#{slug}")
+  end
+
+
+  private 
+  def generate_random_id
+      begin
+        self.slug = "u#{SecureRandom.random_number(1_000_000_000)}"
+      end while User.where(slug: self.slug).exists?
+  end 
+
+
 
 end

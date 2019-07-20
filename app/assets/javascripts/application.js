@@ -31,3 +31,35 @@ $(document).on('turbolinks:load', function(){
 	
 });
 
+$(document).on('turbolinks:load', function(){
+	$( '.profile-sidebar-content-first .nav  a' ).on( 'click', function () {
+		$( '.profile-sidebar-content-first .nav' ).find( 'li.active' ).removeClass( 'active' );
+		$( this ).parent( 'li' ).addClass( 'active' );
+	});
+});
+
+
+
+$(document).on('turbolinks:load', function(){
+    $('#btn-upload').click(function(e){
+        e.preventDefault();
+        $('#profile-image-upload').click();
+    }
+    );
+});
+
+$(document).on('turbolinks:load', function(){
+    $('#profile-image-upload').on('change', function(event) {
+      var files = event.target.files;
+      var image = files[0]
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image();
+        console.log(file);
+        img.src = file.target.result;
+        $('#profile-image-preview').html(img);
+      }
+      reader.readAsDataURL(image);
+      console.log(files);
+    });
+  });

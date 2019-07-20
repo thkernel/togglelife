@@ -86,7 +86,7 @@ gem 'popper_js', '~> 1.14', '>= 1.14.3'
 gem 'pg', '~> 1.0'
 
 # paperclip for images
-gem 'paperclip', '~> 6.1'
+#gem 'paperclip', '~> 6.1'
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 gem 'client_side_validations', '~> 11.1', '>= 11.1.2'
 
@@ -110,6 +110,8 @@ gem 'flag-icons-rails', '~> 3.1'
 
 # Provides object geocoding (by street or IP address)
 gem 'geocoder', '~> 1.5'
+#gem 'countries', '~> 1.2', '>= 1.2.5'
+gem 'countries', require: 'countries/global'
 
 # Geocoding and Places Autocomplete Plugin
 gem 'geocomplete_rails', '~> 1.7'

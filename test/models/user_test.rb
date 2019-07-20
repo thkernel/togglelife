@@ -2,7 +2,8 @@
 #
 # Table name: users
 #
-#  id                     :bigint(8)        not null, primary key
+#  id                     :bigint           not null, primary key
+#  login                  :string
 #  slug                   :string
 #  status                 :string           default("Enabled"), not null
 #  email                  :string           default(""), not null

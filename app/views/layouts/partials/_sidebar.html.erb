@@ -1,82 +1,81 @@
-<div class="left-sidebar" role="left-sidebar">
-
-  <div class="card-body">
-<div class="act-panel ">
-    <div class="act-panel-wr">
-        <%= link_to show_my_profile_path(slug: current_user.slug), class: "act-panel-user" do %>
-        
-            <div class="act-panel-user-pic">
-                <div class="act-panel-user-avatar">
-                    <div class="avatar-placeholder"> 
-                        <%= image_tag current_user.profile.avatar.url(:thumb) %>
-                    </div>                
-                </div>
-                <div class="act-panel-user-name">
-                    <%= current_user.profile.first_name %>               
-                </div>
-            </div>
-        <% end %>
-
-        <div class="act-main-menu">
+<!-- Profil sidebar -->
+<div class="profile-sidebar">
+    <!-- Profile sidebar header -->
+    <div class="profile-sidebar-header">
+        <div class="row">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <%= link_to show_my_profile_path(slug: current_user.slug), class: "nav-link" do %>   
+                        <!-- Avatar -->
+                        <span class="user-avatar">
+                            <%= user_avatar(current_user, "Avatar", "img-fluid rounded-circle")%>              
+                        </span>
+                    
+                        <!-- Username --->
+                        <span class="user-login">
+                            <%=  current_user.login %> 
+                        </span>
+                    <% end %>
+                    
+                </li>
+            </ul>
             
-
-            
-           
-            <a href="/messages" class="act-main-menu-item act-main-msg">
-                Messages                <div class="act-main-nav-buble empty">0</div>
-                <span class="icon">
-                <i class="fa fa-comments-o" aria-hidden="true"></i>
-                                </span>
-            </a>
-            <a href="/profile/activity?page=favd" class="act-main-menu-item act-main-like">
-                Aimé(e) par                
-                
-                <span class="icon">
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-                </span>
-                <div class="act-main-nav-buble empty">0</div>
-            </a>
-            <a href="/profile/activity?page=visit" class="act-main-menu-item act-main-visitor">
-                Visiteurs                
-                <span class="icon">
-                <i class="fa fa-eye" aria-hidden="true"></i>               
-                 </span>
-                <div class="act-main-nav-buble empty">0</div>
-            </a>
-            <a href="/profile/activity?page=mutuals" class="act-main-menu-item act-main-mutuals">
-                Goûts en commun                
-                <span class="icon">
-                <i class="fa fa-heartbeat" aria-hidden="true"></i>                
-                 </span>
-                <div class="act-main-nav-buble empty">0</div>
-            </a>
-            
-            
-            <a href="/messages/contacts" class="act-main-menu-item act-main-contacts">
-            <span class="icon">
-            <i class="fa fa-users" aria-hidden="true"></i>             </span>
-                Contacts            
-                </a>
-            
-            
-           
-           
-
-
         </div>
-       
+    </div><!-- end -->
 
-        
+    <!-- Prodile sidebar  !-->
+    <div class="profile-sidebar-body">
+        <!-- Profile sidebar content-first -->
+        <div class="profile-sidebar-content-first">
+            <div class="row">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <%= link_to profile_path, class: "nav-link active" do  %>
+                             <span class="icon">
+                                <i class="fa fa-newspaper-o" aria-hidden="true"></i>                
+                             </span>
+                             <span>Fil d'actualité</span>
+                        <% end %>
+                       
+                    </li>
 
+                    <li class="nav-item">
+                        <%= link_to messages_path, class: "nav-link" do  %>
+                             <span class="icon">
+                                <i class="fa fa-comments-o" aria-hidden="true"></i>                
+                             </span>
+                             <span>Messages</span>
+                        <% end %>
+                       
+                    </li>
+                   
+                   
+                    <li class="nav-item">
+                        <%= link_to profile_path, class: "nav-link" do  %>
+                             <span class="icon">
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>                
+                             </span>
+                             <span>Favoris</span>
+                        <% end %>
+                       
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to profile_path, class: "nav-link" do  %>
+                             <span class="icon">
+                                <i class="fa fa-users" aria-hidden="true"></i>                
+                             </span>
+                             <span>Flirts</span>
+                        <% end %>
+                       
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- end -->
+    <!-- Profile sidebar footer -->
+    <div class="profile-sidebar-footer">
+        <div class="row">
+            <%= render 'layouts/partials/dashboard_footer' %>  
+        </div>     
     </div>
-
-    
-    </div>
-
-    </div>
-    </div>
-    <div class="footer">
-        
-                    <%= render 'layouts/partials/dashboard_footer' %>
-               
-    </div>
+</div><!-- end profil sidebar -->
