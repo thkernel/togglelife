@@ -26,6 +26,7 @@
 #  religion           :string
 #  purpose            :string
 #  user_id            :bigint           not null
+#  identifier         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

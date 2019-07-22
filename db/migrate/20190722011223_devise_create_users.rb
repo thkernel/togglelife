@@ -5,7 +5,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       ## Infos
       t.string 	:login
-	    t.string :slug, unique: true
+      t.string :slug, unique: true
+      t.references :role, foreign_key: true
+      t.string :identifier
 	  
       t.string :status, null: false, default: "Enabled"
       ## Database authenticatable
@@ -43,7 +45,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
-    # add_index :users, :unlock_token,         unique: true
+    add_index :users, :confirmation_token,   unique: true
+    add_index :users, :unlock_token,         unique: true
   end
 end

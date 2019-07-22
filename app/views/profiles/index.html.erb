@@ -32,7 +32,12 @@
                             </div>
                         </div>
                     <% end %>
- 
+                   
+                </div>
+                <div class="row page-navi">
+                    
+                    <%= will_paginate @users, previous_label: "Précédent", next_label: "Suivant",  renderer: BootstrapPagination::Rails %> 
+                 
                 </div>
             </div>
         </div>

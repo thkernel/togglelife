@@ -26,14 +26,25 @@
 #  religion           :string
 #  purpose            :string
 #  user_id            :bigint           not null
+#  identifier         :string
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
 
 class Profile < ApplicationRecord
+	# Include shared utils.
+	include SharedUtils::Model
+   
+	before_save :generate_random_id 
+	
 	belongs_to :user
 
 	# For active storage
 	has_one_attached :avatar
-	
+	validates :gender, presence: true
+	validates :city, presence: true
+	validates :country, presence: true
+
+	#validates :identifier, presence: true, uniqueness: true
+
 end

@@ -7,7 +7,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRxpYSfeVzq75bkQQYdxGUhhAREUgFcaw&libraries=places"></script>
 
   </head>
 
@@ -15,16 +14,16 @@
   <%= render :partial => 'layouts/partials/flash_messages', :flash => flash %>
   
     <!-- Navbar -->
-    <%= render "layouts/partials/home/header/header"%>
+    <%= render "layouts/partials/header"%>
   
     
     <%= yield %>
     
      <!-- Footer -->
-    
-      <%= render "layouts/partials/home/footer/footer" %>
+      <% if controller_name == 'registrations' %>
+        <%= render "layouts/partials/home/footer/footer" %>
    
-  
+      <% end %>
     
   </body>
 </html>

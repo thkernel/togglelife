@@ -5,6 +5,8 @@
 #  id                     :bigint           not null, primary key
 #  login                  :string
 #  slug                   :string
+#  role_id                :bigint
+#  identifier             :string
 #  status                 :string           default("Enabled"), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null

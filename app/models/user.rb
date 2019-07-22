@@ -5,6 +5,8 @@
 #  id                     :bigint           not null, primary key
 #  login                  :string
 #  slug                   :string
+#  role_id                :bigint
+#  identifier             :string
 #  status                 :string           default("Enabled"), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -28,7 +30,11 @@
 #
 
 class User < ApplicationRecord
-  before_create :generate_random_id
+   # Include shared utils.
+   include SharedUtils::Model
+   
+   before_save :generate_random_id 
+   before_save :random_user_id 
  
 
   # Include default devise modules. Others available are:
@@ -54,19 +60,20 @@ class User < ApplicationRecord
   has_many :messages, :dependent => :destroy
   #has_many :notifications, :dependent => :destroy
 
-  # Les conversations  où ce membre est le Sender (1)
-  #has_many :conversations_as_sender, :class_name => "Conversation", :foreign_key => :sender_id
+  
   has_many :own_conversations, :class_name => "Conversation", :foreign_key => :sender_id
-
-  # Les conversations  où ce membre est le Recipient (2)
-  #has_many :conversations_as_recipient, :class_name => "Conversation", :foreign_key => :recipient_id
-
   has_many :foreign_conversations, :class_name => "Conversation", :foreign_key => :recipient_id
-  #has_many :conversations, :foreign_key => "sender_id", :class_name => "Conversation"
+
+  has_many :own_flirts, :class_name => "Flirt", :foreign_key => :sender_id
+  has_many :foreign_flirts, :class_name => "Flirt", :foreign_key => :recipient_id
+
+  has_many :own_favoris, :class_name => "Favori", :foreign_key => :sender_id
+  has_many :foreign_favoris, :class_name => "Favori", :foreign_key => :recipient_id
 
   
   # Validations
   validates :login, presence: true, uniqueness: true
+  #validates :identifier, presence: true, uniqueness: true
 
   def self.find_user_by_slug(slug)
     where("slug = ? ", "#{slug}")
@@ -74,12 +81,11 @@ class User < ApplicationRecord
 
 
   private 
-  def generate_random_id
-      begin
-        self.slug = "u#{SecureRandom.random_number(1_000_000_000)}"
-      end while User.where(slug: self.slug).exists?
+	
+	def random_user_id 
+		begin
+			self.slug = "u#{SecureRandom.random_number(1_000_000_000)}"
+		end while User.where(slug: self.slug).exists?
   end 
-
-
-
+  
 end

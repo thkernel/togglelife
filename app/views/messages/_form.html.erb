@@ -6,8 +6,8 @@
     </ul>
 
     <div class="form-group">
-        <%= form.label :body %>
-        <%= form.text_area :body, id: :message_body, class: "form-control" %>
+        <%= form.label "Votre message" %>
+        <%= form.text_area :body, id: :message_body, class: "form-control", placeholder: "Votre message ici!", required: true %>
     </div>
 
     
@@ -15,6 +15,6 @@
     </div><!-- modal body -->
   <div class="modal-footer">
     <%= link_to "Annuler", "#", class: "btn btn-secondary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1", data: {dismiss: "modal"} %>
-    <%= form.submit  class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
+    <%= form.submit  "Envoyer", class: "btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1",  "data-loading-text"=>"Loading...", autocomplete: "off" %>
   </div>
 <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_234630) do
+ActiveRecord::Schema.define(version: 2019_07_22_011802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,51 @@ ActiveRecord::Schema.define(version: 2019_07_16_234630) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "blockings", force: :cascade do |t|
+    t.string "reason"
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id", null: false
+    t.string "status", default: "pending"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_blockings_on_recipient_id"
+    t.index ["sender_id"], name: "index_blockings_on_sender_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.bigint "sender_id", null: false
     t.bigint "recipient_id", null: false
+    t.string "identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "favoris", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id", null: false
+    t.string "status", default: "enable"
+    t.datetime "removed_at"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_favoris_on_recipient_id"
+    t.index ["sender_id"], name: "index_favoris_on_sender_id"
+  end
+
+  create_table "flirts", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id", null: false
+    t.string "status", default: "pending"
+    t.datetime "accepted_at"
+    t.datetime "removed_at"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_flirts_on_recipient_id"
+    t.index ["sender_id"], name: "index_flirts_on_sender_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -52,10 +90,35 @@ ActiveRecord::Schema.define(version: 2019_07_16_234630) do
     t.bigint "user_id", null: false
     t.datetime "send_at"
     t.datetime "read_at"
+    t.string "identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.bigint "sender_id", null: false
+    t.bigint "recipient_id", null: false
+    t.boolean "read", default: false
+    t.datetime "read_at"
+    t.string "status"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
+    t.index ["sender_id"], name: "index_notifications_on_sender_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -82,14 +145,26 @@ ActiveRecord::Schema.define(version: 2019_07_16_234630) do
     t.string "religion"
     t.string "purpose"
     t.bigint "user_id", null: false
+    t.string "identifier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "status"
+    t.string "identifier"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "login"
     t.string "slug"
+    t.bigint "role_id"
+    t.string "identifier"
     t.string "status", default: "Enabled", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -110,11 +185,15 @@ ActiveRecord::Schema.define(version: 2019_07_16_234630) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "users", "roles"
 end

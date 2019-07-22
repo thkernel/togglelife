@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: flirts
+#
+#  id           :bigint           not null, primary key
+#  sender_id    :bigint           not null
+#  recipient_id :bigint           not null
+#  status       :string           default("pending")
+#  accepted_at  :datetime
+#  removed_at   :datetime
+#  identifier   :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: 1
+  recipient_id: 1
+  status: MyString
+  : 
+
+two:
+  sender_id: 1
+  recipient_id: 1
+  status: MyString
+  : 

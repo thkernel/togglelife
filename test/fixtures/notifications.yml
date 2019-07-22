@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id           :bigint           not null, primary key
+#  title        :string
+#  content      :string
+#  sender_id    :bigint           not null
+#  recipient_id :bigint           not null
+#  read         :boolean          default(FALSE)
+#  read_at      :datetime
+#  status       :string
+#  identifier   :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: 
+  content: MyString
+  sender_id: 1
+  recipient_id: 1
+  status: MyString
+
+two:
+  title: 
+  content: MyString
+  sender_id: 1
+  recipient_id: 1
+  status: MyString

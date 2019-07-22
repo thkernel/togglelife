@@ -6,13 +6,14 @@ module ProfilesHelper
         end
     end
     def is_me?(user)
-        if user && current_user.id == user.id 
+        if user && current_user.slug == user.slug
             true
         else
             false
         end
     end
-    def user(user_id)
-        User.find(user_id)
+    def user(slug)
+        
+        User.find_by(slug: slug)
     end
 end

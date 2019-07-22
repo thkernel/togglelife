@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     #@profiles = Profile.all
-    @users = User.where.not(id: current_user.id).order(created_at: 'DESC')
+    @users = User.where.not(id: current_user.id).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /profiles/1

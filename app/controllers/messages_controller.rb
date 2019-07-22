@@ -33,30 +33,40 @@ class MessagesController < ApplicationController
 	
 	# Show
 	 def show
-		@message = Message.new
-		conversation = find_conversation(params[:id])
+	
 
-		if conversation.recipient_id != current_user.id 
-			@recipient_id = conversation.recipient_id
-		elsif conversation.sender_id != current_user.id 
-			@recipient_id = conversation.sender_id
+		@message = Message.new
+		user = User.find_by(slug: params[:slug])
+		if user.present?
+		conversation = find_conversation(user.id)
+
+			if conversation.recipient_id != current_user.id 
+				@recipient_id = User.find(conversation.recipient_id).slug
+			elsif conversation.sender_id != current_user.id 
+				@recipient_id = User.find(conversation.sender_id).slug
+			end
+
+			@messages = conversation.messages
 		end
- 		@messages = conversation.messages	
+ 			
 	end
 
 	def create
 		puts "RECIPIENT INTERNE: #{params[:recipient_id]}"
-		recipient_id = params[:recipient_id]
-		@conversation = find_conversation(recipient_id) || Conversation.create(sender_id: current_user.id, recipient_id: recipient_id)
-		puts "LA CONVERSATION: #{@conversation.inspect}"
-		#Create message
-		@message = @conversation.messages.build(message_params)
-		@message.user_id = current_user.id
-		puts "VOICI LE MESSAGE: #{@message.inspect}"
-		if @message.save
-			redirect_to show_messages_path(recipient_id)
-		else  
-			puts "MESSAGE NON CREATE"
+		user = User.find_by(slug: params[:recipient_id])
+		if user.present?
+			recipient_id = user.id
+			@conversation = find_conversation(recipient_id) || Conversation.create(sender_id: current_user.id, recipient_id: recipient_id)
+
+			#Create message
+			@message = @conversation.messages.build(message_params)
+			@message.user_id = current_user.id
+			
+			if @message.save
+				redirect_to show_messages_path(@message.identifier, user.slug)
+			else  
+				puts "MESSAGE NON CREATE"
+			end
 		end
 	    
 	 end
@@ -67,9 +77,10 @@ class MessagesController < ApplicationController
 	  end
 		
 		def find_conversation(recipient_id)
-			conversations = Conversation.current_user_conversations(recipient_id).take
-			#conversation = conversations.where(["recipient_id = ? OR sender_id = ?", recipient, recipient]).take
-
+			conversations = Conversation.current_user_conversations(current_user.id)
+			if conversations.present?
+				conversation = conversations.where(["recipient_id = ? OR sender_id = ?", recipient_id, recipient_id]).take
+			end
 		end
 
 		def set_recipient

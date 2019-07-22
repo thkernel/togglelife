@@ -27,7 +27,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :purpose 
       #t.attachment  :avatar
       t.references :user, foreign_key: true, null: false, index: {unique: true}
-
+      t.string :identifier
       t.timestamps
     end
   end

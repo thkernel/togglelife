@@ -517,5 +517,46 @@ html, body{
 
     overflow-x: hidden;
     margin-bottom: 10px;
-    padding-bottom: 10px;
+    padding: 10px ;
+    background-image: url("fond/conversation.png");
+    border: 1px solid silver;
+}
+.login-form{
+   
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login-form, .cgu-page, .advertise-page, .cookies-page{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.user-profile-cover-left-content .user-avatar, .user-profile-cover-left-content .user-login{
+    float: left;
+    
+}
+.user-profile-cover-left-content .user-login{
+    /*float: left;*/
+    margin-top: 25px;
+    margin-left: 6px;
+   
+}
+.choose-profile-thumbnail{
+    /*border: 1px solid;*/
+}
+.profile-sidebar-header a {
+    color: #222 !important;
+    font-weight: 600 !important;
+
+}
+.user-name  a{
+    color: #222 !important;
+}
+.user-name:hover {
+
+    text-decoration: none !important;
+
+}
+.pagination {
+    text-align: center;
 }

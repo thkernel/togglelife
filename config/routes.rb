@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :blockings
+  resources :notifications
+  resources :favoris
+  resources :flirts
+  get 'cgu' => "pages#cgu", as: :cgu
+  get 'cookies' => "pages#cookies", as: :cookies
+  get 'advertise' => "pages#advertise", as: :advertise
+  get 'send/flirt/request/:slug' =>  "flirts#send_flirt", as: :send_new_flirt
+  get 'accept/flirt/request/:identifier' =>  "flirts#accept_flirt", as: :accept_flirt
+  get 'remove/flirt/request/:identifier' =>  "flirts#remove_flirt", as: :remove_flirt
+  get 'add/favoris/request/:slug' =>  "favoris#add_to_favoris", as: :add_to_favoris
+  get 'remove/favoris/request/:identifier' =>  "favoris#remove_to_favoris", as: :remove_to_favoris
+
+  #get 'policy'
   resources :messages
   resources :conversations
   # Default routes.
@@ -23,7 +37,7 @@ Rails.application.routes.draw do
  # get "update/profile/:slug" => "profiles#show_his_profile", as: :show_his_profile # After i would replace :login by slug
 
   get "message/new/:recipient_id/" => "messages#new", as: :send_new_message
-  get "messages/:id/" => "messages#show", as: :show_messages
+  get "messages/:identifier/:slug/" => "messages#show", as: :show_messages
   post "message/create/:recipient_id/" => "messages#create", as: :create_message
   
   
