@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= render 'layouts/partials/google_analytics' %>
 
   </head>
 
@@ -22,7 +22,7 @@
      <!-- Footer -->
       <% if controller_name == 'registrations' %>
         <%= render "layouts/partials/home/footer/footer" %>
-   
+        <%= render 'cookies_eu/consent_banner', link: '/cookies' %>
       <% end %>
     
   </body>

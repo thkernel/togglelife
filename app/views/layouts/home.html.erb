@@ -6,8 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDRxpYSfeVzq75bkQQYdxGUhhAREUgFcaw&libraries=places"></script>
-
+    <%= render 'layouts/partials/google_analytics' %>
 
 
 
@@ -19,5 +18,6 @@
     <%= render "layouts/partials/home/header/header"%>
     <%= yield %>
     <%= render "layouts/partials/home/footer/footer"%>
+    <%= render 'cookies_eu/consent_banner', link: '/cookies' %>
   </body>
 </html>

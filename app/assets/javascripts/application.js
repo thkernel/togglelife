@@ -20,6 +20,8 @@
 //= require bootstrap
 //= require toastr
 //= require rails.validations
+//= require cookies_eu
+//= require google_analytics
 
 
 // require_tree .
