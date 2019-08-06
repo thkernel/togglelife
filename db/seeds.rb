@@ -7,6 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # Add initial role in database.
 
+
+# Capistrano-rails-collection cammands
+#cap production rails:rake:log:clear
+#cap production rails:rake:tmp:clear
+#cap production rails:rake:db:drop
+#cap production rails:rake:db:reset
+#cap production rails:rake:db:setup
+#cap production rails:rake:db:seed
+#cap production rails:rake:db:migrate
+#cap production rails:rake:db:rollback
+
+
 # Roles
 
 unless Role.all.present?
