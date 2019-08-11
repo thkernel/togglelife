@@ -70,9 +70,16 @@ Rails.application.routes.draw do
             sign_up: '' 
         }
 
-
+=begin
         %w( 404 422 500 ).each do |code|
           get code, :to => "errors#show", :code => code
         end
+=end
+
+# Dynamic error pages
+get "/404", to: "errors#not_found"
+get "/422", to: "errors#unacceptable"
+get "/500", to: "errors#internal_error"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
