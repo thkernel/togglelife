@@ -117,4 +117,7 @@ config.action_mailer.perform_deliveries = true
   :ssl => true
   }
 
+   # Added to customize error page
+   config.exceptions_app = self.routes
+
 end
