@@ -137,7 +137,7 @@ gem 'dotenv-rails', groups: [:development, :test, :production]
 gem "recaptcha", require: "recaptcha/rails"
 
 # CKEditor is a WYSIWYG editor to be used inside web pages
-gem 'ckeditor', '~> 4.2', '>= 4.2.4'
+#gem 'ckeditor', '~> 4.2', '>= 4.2.4'
 
 #gem 'nokogiri', '~> 1.8', '>= 1.8.1'
 

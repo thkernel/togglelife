@@ -1,4 +1,12 @@
-<h2>Change your password</h2>
+<div class="login-wrapper">
+  <div class="container">
+    <div class="login-form">
+      <div class="card">
+        <div class="card-header">
+    <h3 class="text-center">Changement de mot de passe</h3>
+    </div>
+    <div class="card-body">
+
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -12,14 +20,19 @@
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
+  <div class="form-group">
+    <%= f.submit "Changer mon mot de passe", class: "btn btn-primary btn-block" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>
+    </div>
+    </div>
+  </div>
+</div>
