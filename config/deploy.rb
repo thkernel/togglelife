@@ -46,7 +46,7 @@ set :repo_url, "https://github.com/thkernel/flirtera.git"
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
-
+=begin
 set :pty, true
 set :ssh_options, {
   forward_agent: true,
@@ -54,3 +54,4 @@ set :ssh_options, {
   keys: ["~/projects/rails/flirtera/flirtera-ec2.pem"]
 }
 #~/projects/rails/oisepro
+=end
