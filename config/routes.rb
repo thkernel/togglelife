@@ -67,14 +67,11 @@ Rails.application.routes.draw do
             confirmation: 'verification', 
             unlock: 'unblock', 
             registration: 'signup', 
-            sign_up: '' 
+            sign_up: '' ,
+            omniauth_callbacks: 'users/omniauth'
         }
 
-=begin
-        %w( 404 422 500 ).each do |code|
-          get code, :to => "errors#show", :code => code
-        end
-=end
+
 
 # Dynamic error pages
 get "/404", to: "errors#not_found"

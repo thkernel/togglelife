@@ -104,18 +104,18 @@ Rails.application.configure do
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.default :charset => "utf-8"
   
-    config.action_mailer.default_url_options = { host: 'https://staging.flirtera.net' }
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-    address:              'mail12.lwspanel.com',
-    port:                 465,
-    domain:               'flirtera.net',
-    user_name:            'inscription@flirtera.net',
-    password:             'Amosxzibitde88@',
-    authentication:       'plain',
-    enable_starttls_auto: true ,
-    :ssl => true
-    }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.dig(:email, :staging, :host)  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              Rails.application.credentials.dig(:email, :staging, :address) ,
+    port:                 Rails.application.credentials.dig(:email, :staging, :port) ,
+    domain:               Rails.application.credentials.dig(:email, :staging, :domain) ,
+    user_name:            Rails.application.credentials.dig(:email, :staging, :user_name) ,
+    password:             Rails.application.credentials.dig(:email, :staging, :password) ,
+    authentication:       Rails.application.credentials.dig(:email, :staging, :authentication) ,
+    enable_starttls_auto: Rails.application.credentials.dig(:email, :staging, :enable_starttls_auto)  ,
+    :ssl => Rails.application.credentials.dig(:email, :staging, :ssl) 
+}
   
   end
   
