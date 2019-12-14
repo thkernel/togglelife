@@ -13,6 +13,7 @@ set :rails_env, "production"
 server "51.38.235.131", user: "root", roles: %w{app db web}, ssh_options: {forward_agent: true}
 
 set :branch, "master"
+set :port, 3003
 
 
 

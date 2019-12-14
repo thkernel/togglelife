@@ -55,5 +55,4 @@ set :ssh_options, {
   keys: ["~/projects/rails/flirtera/flirtera-ec2.pem"]
 }
 #~/projects/rails/oisepro
-
 =end
