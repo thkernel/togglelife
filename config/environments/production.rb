@@ -3,7 +3,10 @@ Rails.application.configure do
 
   #force HTTPS on production
   config.force_ssl = true
-
+  config.to_prepare { Devise::SessionsController.force_ssl }
+  config.to_prepare { Devise::RegistrationsController.force_ssl }
+  config.to_prepare { Devise::PasswordsController.force_ssl }
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -104,7 +107,7 @@ config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
-  config.action_mailer.default_url_options = { host: Rails.application.credentials.dig(:email, :production, :host)  }
+  config.action_mailer.default_url_options = { protocol: "https", host: Rails.application.credentials.dig(:email, :production, :host)  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              Rails.application.credentials.dig(:email, :production, :address) ,
