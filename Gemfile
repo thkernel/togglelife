@@ -105,6 +105,8 @@ gem 'omniauth-google-oauth2', '~> 0.5.3'
 # Facebook OAuth2 Strategy for OmniAuth
 gem 'omniauth-facebook', '~> 5.0'
 
+gem 'activerecord-session_store', '~> 1.1', '>= 1.1.3'
+
 # Gem allows to use `flag-icon-css` - a collection of all country flags in SVG - in your Rails projects
 gem 'flag-icons-rails', '~> 3.1'
 
