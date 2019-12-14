@@ -20,7 +20,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-  config.mailer_sender = 'Flirtera <inscription@flirtera.net>'
+  config.mailer_sender = 'Flirtera <registration@flirtera.net>'
 
 
   # Configure the class responsible to send e-mails.
@@ -290,4 +290,8 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  # Omniauth requirements
+  config.omniauth :facebook, Rails.application.credentials.dig(:omniauth, :facebook_app_id), Rails.application.credentials.dig(:omniauth, :facebook_app_secret), scope: 'public_profile,email'
+
 end
