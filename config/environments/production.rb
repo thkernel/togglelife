@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   #force HTTPS on production
-  #config.force_ssl = true
+  config.force_ssl = true
   #config.to_prepare { Devise::SessionsController.force_ssl }
   #config.to_prepare { Devise::RegistrationsController.force_ssl }
   #config.to_prepare { Devise::PasswordsController.force_ssl }

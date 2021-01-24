@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "flirtera.net"
-set :repo_url, "https://github.com/thkernel/flirtera.git"
+set :application, "togglelife"
+set :repo_url, "https://github.com/thkernel/togglelife.git"
 #set :ssh_options, { auth_methods: %w(password), password: "AMOSXZIBITDE88" }
 
 # Default branch is :master
@@ -22,7 +22,7 @@ set :repo_url, "https://github.com/thkernel/flirtera.git"
 # set :pty, true
 
 # Default value for :linked_files is []
- append :linked_files, "config/database.yml", "config/master.key"
+ append :linked_files, "config/database.yml", "config/master.key", "config/storage.yml"
 
 
 # Default value for linked_dirs is []
